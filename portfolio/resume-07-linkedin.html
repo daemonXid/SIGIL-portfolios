@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | LinkedIn Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f3f2ef; color: rgba(0,0,0,0.9); }
+        .li-card { background: white; border-radius: 8px; border: 1px solid #e0e0e0; margin-bottom: 8px; overflow: hidden; }
+        .li-blue { color: #0a66c2; }
+        .li-btn { border: 1px solid #0a66c2; color: #0a66c2; font-weight: 600; padding: 6px 16px; border-radius: 16px; }
+        .li-btn-filled { background: #0a66c2; color: white; border: none; }
+    </style>
+</head>
+<body class="py-10 px-4">
+    
+    <div class="max-w-3xl mx-auto">
+        
+        <!-- Header Card -->
+        <div class="li-card">
+            <div class="h-32 bg-zinc-300 relative">
+                <div class="absolute -bottom-16 left-6 w-32 h-32 rounded-full border-4 border-white bg-zinc-200 overflow-hidden box-content flex items-center justify-center text-4xl font-bold text-zinc-400">
+                    JD
+                </div>
+            </div>
+            <div class="pt-20 pb-6 px-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h1 class="text-2xl font-bold">John Doe</h1>
+                        <p class="text-base text-zinc-600">Senior Business Analyst at Global Corp | MBA | Strategy & Operations</p>
+                        <p class="text-sm text-zinc-500 mt-2">Seoul, South Korea • <span class="li-blue font-bold">Contact info</span></p>
+                        <p class="text-sm text-zinc-500 mt-1"><span class="li-blue font-bold">500+ connections</span></p>
+                    </div>
+                    <div class="hidden sm:block text-sm space-y-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-zinc-100 rounded flex items-center justify-center font-bold text-[10px]">GC</div>
+                            <span class="font-bold">Global Corp</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-zinc-100 rounded flex items-center justify-center font-bold text-[10px]">YU</div>
+                            <span class="font-bold">Yonsei University</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 flex gap-2">
+                    <button class="li-btn li-btn-filled">Open to</button>
+                    <button class="li-btn">Add profile section</button>
+                    <button class="li-btn border-zinc-400 text-zinc-500">More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Card -->
+        <div class="li-card p-6">
+            <h2 class="text-xl font-bold mb-4">About</h2>
+            <p class="text-sm leading-relaxed">
+                데이터를 통해 비즈니스 인사이트를 도출하고 실행 가능한 전략을 수립하는 데 8년 이상의 경력을 보유하고 있습니다. 특히 복잡한 시장 동향을 분석하여 중장기 로드맵을 설계하는 데 강점이 있습니다.
+            </p>
+        </div>
+
+        <!-- Experience Card -->
+        <div class="li-card p-6">
+            <h2 class="text-xl font-bold mb-6">Experience</h2>
+            <div class="space-y-6">
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 bg-zinc-100 rounded flex-shrink-0 flex items-center justify-center font-bold">GC</div>
+                    <div class="flex-1">
+                        <h3 class="font-bold">Senior Business Analyst</h3>
+                        <p class="text-sm">Global Corp • Full-time</p>
+                        <p class="text-sm text-zinc-500">Jan 2021 - Present • 3 yrs 11 mos</p>
+                        <p class="text-sm mt-3">전사적 데이터 거버넌스 프레임워크 구축 및 글로벌 매출 예측 모델링 담당.</p>
+                    </div>
+                </div>
+                <div class="border-b border-zinc-100 mx-12"></div>
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 bg-zinc-100 rounded flex-shrink-0 flex items-center justify-center font-bold">SC</div>
+                    <div class="flex-1">
+                        <h3 class="font-bold">Business Strategy Consultant</h3>
+                        <p class="text-sm">Strategy Consulting Group • Part-time</p>
+                        <p class="text-sm text-zinc-500">Jan 2019 - Dec 2020 • 2 yrs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Card -->
+        <div class="li-card p-6">
+            <h2 class="text-xl font-bold mb-6">Education</h2>
+            <div class="flex gap-4">
+                <div class="w-12 h-12 bg-zinc-100 flex-shrink-0 flex items-center justify-center font-bold">YU</div>
+                <div class="flex-1">
+                    <h3 class="font-bold">Yonsei University</h3>
+                    <p class="text-sm font-medium">Master of Business Administration - MBA, Business/Commerce, General</p>
+                    <p class="text-sm text-zinc-500">2017 - 2019</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Premium Enhancements: Lenis & View Transitions -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        if ('startViewTransition' in document) {
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a[href]');
+                if (!link || link.target === '_blank' || link.getAttribute('href').startsWith('#')) return;
+                e.preventDefault();
+                document.startViewTransition(() => { window.location.href = link.href; });
+            });
+        }
+    </script>
+    <a href="../index.html" class="fixed bottom-8 right-8 z-50 bg-black/80 text-white px-6 py-3 rounded-full text-sm font-bold backdrop-blur-md border border-white/20 hover:scale-110 transition-transform flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Gallery
+    </a>
+
+</body>
+</html>

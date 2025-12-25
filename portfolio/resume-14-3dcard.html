@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Resume | 3D Card Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.4s; }
+        body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); 
+            color: #fff; min-height: 100vh; perspective: 1000px; }
+        .card-3d { transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-3d:hover { transform: rotateY(-5deg) rotateX(5deg) translateZ(30px); }
+        .card-inner { background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+            backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; }
+        .card-shadow { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 100px rgba(99, 102, 241, 0.1); }
+        .float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .gradient-text { background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glow-ring { box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3), 0 0 40px rgba(99, 102, 241, 0.4); }
+    </style>
+</head>
+<body class="p-8">
+    <nav class="mb-8"><a href="../index.html" class="text-sm text-white/60 hover:text-white">← Back</a></nav>
+    <main class="max-w-4xl mx-auto">
+        <!-- Main Card -->
+        <div class="card-3d mb-8">
+            <div class="card-inner card-shadow p-12">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 
+                        flex items-center justify-center text-4xl font-bold glow-ring float">3D</div>
+                    <div class="text-center md:text-left">
+                        <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-2">이차원</h1>
+                        <p class="text-xl text-purple-300 mb-4">3D Artist & Motion Designer</p>
+                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Blender</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Cinema 4D</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Houdini</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Experience Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card-3d">
+                <div class="card-inner p-8 h-full">
+                    <h2 class="text-xs text-purple-400 uppercase tracking-widest mb-4">Experience</h2>
+                    <div class="space-y-4">
+                        <div class="border-l-2 border-purple-500 pl-4">
+                            <h3 class="font-bold">STUDIO XYZ</h3>
+                            <p class="text-sm text-white/60">Senior 3D Artist (2022-Now)</p>
+                        </div>
+                        <div class="border-l-2 border-white/20 pl-4">
+                            <h3 class="font-bold">VFX KOREA</h3>
+                            <p class="text-sm text-white/60">Motion Designer (2019-2022)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-3d">
+                <div class="card-inner p-8 h-full">
+                    <h2 class="text-xs text-purple-400 uppercase tracking-widest mb-4">Projects</h2>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-white/5 p-4 rounded-xl text-center">
+                            <div class="text-2xl mb-1">🎬</div>
+                            <p class="text-xs">Netflix Intro</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-xl text-center">
+                            <div class="text-2xl mb-1">🎮</div>
+                            <p class="text-xs">Game Trailer</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-xl text-center">
+                            <div class="text-2xl mb-1">📱</div>
+                            <p class="text-xs">AR Filter</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-xl text-center">
+                            <div class="text-2xl mb-1">🌐</div>
+                            <p class="text-xs">WebGL Art</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="mt-16 text-center text-xs text-white/30 uppercase tracking-widest">Depth Matters</footer>
+
+    <!-- Premium Enhancements: Lenis & View Transitions -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        if ('startViewTransition' in document) {
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a[href]');
+                if (!link || link.target === '_blank' || link.getAttribute('href').startsWith('#')) return;
+                e.preventDefault();
+                document.startViewTransition(() => { window.location.href = link.href; });
+            });
+        }
+    </script>
+    <a href="../index.html" class="fixed bottom-8 right-8 z-50 bg-black/80 text-white px-6 py-3 rounded-full text-sm font-bold backdrop-blur-md border border-white/20 hover:scale-110 transition-transform flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Gallery
+    </a>
+
+</body>
+</html>

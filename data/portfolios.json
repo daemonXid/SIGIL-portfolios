@@ -1,0 +1,13 @@
+[
+    { "id": 1, "number": "01", "path": "portfolio/resume-01-zen.html", "title": "Zen Minimal", "category": "Minimal", "categoryId": "minimal", "description": "화이트 스페이스 중심의 정갈한 디자인", "previewBg": "#0B132B" },
+    { "id": 2, "number": "02", "path": "portfolio/resume-02-tech.html", "title": "Tech Dark", "category": "Dark", "categoryId": "dark", "description": "개발자를 위한 고대비 다크 테마", "previewBg": "#1C2541" },
+    { "id": 3, "number": "03", "path": "portfolio/resume-03-creative.html", "title": "Creative Gradient", "category": "Creative", "categoryId": "creative", "description": "생동감 넘치는 그라디언트 레이아웃", "previewBg": "#3A0CA3" },
+    { "id": 4, "number": "04", "path": "portfolio/resume-04-classic.html", "title": "Academic Classic", "category": "Classic", "categoryId": "professional", "description": "신뢰감을 주는 전통적 세리프 스타일", "previewBg": "#1D3557" },
+    { "id": 5, "number": "05", "path": "portfolio/resume-05-bento.html", "title": "Bento Modern", "category": "Bento", "categoryId": "creative", "description": "트렌디한 벤토 그리드 레이아웃", "previewBg": "#480CA8" },
+    { "id": 6, "number": "06", "path": "portfolio/resume-06-notion.html", "title": "Notion Style", "category": "Productivity", "categoryId": "minimal", "description": "노션 영감의 깔끔한 생산성 스타일", "previewBg": "#240046" },
+    { "id": 7, "number": "07", "path": "portfolio/resume-07-linkedin.html", "title": "LinkedIn Style", "category": "Professional", "categoryId": "professional", "description": "프로페셔널 비즈니스 카드 스타일", "previewBg": "#03045E" },
+    { "id": 8, "number": "08", "path": "portfolio/resume-09-magazine.html", "title": "Magazine Editorial", "category": "Editorial", "categoryId": "creative", "description": "잡지 스타일의 대담한 타이포그래피", "previewBg": "#4A000E" },
+    { "id": 9, "number": "09", "path": "portfolio/resume-10-glassmorphism.html", "title": "Glassmorphism", "category": "Glass", "categoryId": "dark", "description": "애니메이션 블러와 투명도 중심 디자인", "previewBg": "#3F37C9" },
+    { "id": 10, "number": "10", "path": "portfolio/resume-14-3dcard.html", "title": "3D Card", "category": "3D", "categoryId": "creative", "description": "CSS Perspective 기반 호버 틸트 효과", "previewBg": "#7209B7" },
+    { "id": 11, "number": "11", "path": "portfolio/resume-16-startup.html", "title": "Startup Pitch", "category": "Startup", "categoryId": "professional", "description": "피치덱 형태의 데이터 시각화 스타일", "previewBg": "#4361EE" }
+]

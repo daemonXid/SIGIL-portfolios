@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Resume | Startup Pitch Deck Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.4s; }
+        body { font-family: 'Inter', sans-serif; background: #fff; color: #111; }
+        .primary-gradient { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); }
+        .metric-card { border-radius: 16px; background: linear-gradient(135deg, #f8fafc, #f1f5f9); }
+        .highlight { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="min-h-screen">
+    <nav class="p-6 border-b"><a href="../index.html" class="text-sm hover:underline">← Back</a></nav>
+    <main class="max-w-5xl mx-auto px-8 py-16">
+        <!-- Slide 1: Title -->
+        <section class="min-h-[60vh] flex flex-col justify-center mb-24">
+            <span class="text-sm font-semibold text-indigo-600 mb-4">CAREER DECK 2024</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Hi, I'm 박스타트업.</h1>
+            <p class="text-xl text-zinc-600 max-w-2xl">
+                데이터 기반 의사결정으로 스타트업을 10x 성장시키는 Growth PM입니다.
+            </p>
+            <div class="mt-8 flex gap-4">
+                <div class="primary-gradient text-white px-6 py-3 rounded-full font-semibold">Contact Me</div>
+                <div class="border-2 border-zinc-200 px-6 py-3 rounded-full font-semibold">Download PDF</div>
+            </div>
+        </section>
+        
+        <!-- Slide 2: Problem/Solution -->
+        <section class="mb-24">
+            <h2 class="text-3xl font-bold mb-8">The Problem I Solve</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-8 bg-red-50 rounded-2xl border-l-4 border-red-500">
+                    <h3 class="font-bold text-red-600 mb-2">😰 문제</h3>
+                    <p class="text-zinc-600">대부분의 스타트업은 데이터를 수집하지만 활용하지 못함</p>
+                </div>
+                <div class="p-8 bg-green-50 rounded-2xl border-l-4 border-green-500">
+                    <h3 class="font-bold text-green-600 mb-2">✅ 해결</h3>
+                    <p class="text-zinc-600">데이터 파이프라인 + 자동화된 인사이트 = 빠른 의사결정</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Slide 3: Metrics -->
+        <section class="mb-24">
+            <h2 class="text-3xl font-bold mb-8">Key Metrics</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="metric-card p-6 text-center">
+                    <p class="text-4xl font-bold highlight">312%</p>
+                    <p class="text-sm text-zinc-500 mt-1">Revenue Growth</p>
+                </div>
+                <div class="metric-card p-6 text-center">
+                    <p class="text-4xl font-bold highlight">2.5x</p>
+                    <p class="text-sm text-zinc-500 mt-1">Retention Lift</p>
+                </div>
+                <div class="metric-card p-6 text-center">
+                    <p class="text-4xl font-bold highlight">$4M</p>
+                    <p class="text-sm text-zinc-500 mt-1">Revenue Led</p>
+                </div>
+                <div class="metric-card p-6 text-center">
+                    <p class="text-4xl font-bold highlight">98%</p>
+                    <p class="text-sm text-zinc-500 mt-1">NPS Score</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Slide 4: Experience Timeline -->
+        <section class="mb-24">
+            <h2 class="text-3xl font-bold mb-8">Career Journey</h2>
+            <div class="space-y-6">
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl primary-gradient flex items-center justify-center text-white font-bold shrink-0">Now</div>
+                    <div>
+                        <h3 class="font-bold text-lg">Head of Growth @ Unicorn.io</h3>
+                        <p class="text-zinc-500">Series C 스타트업 그로스 총괄</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-zinc-100 flex items-center justify-center font-bold shrink-0">'21</div>
+                    <div>
+                        <h3 class="font-bold text-lg">Growth PM @ Fast.vc</h3>
+                        <p class="text-zinc-500">MAU 10만 → 100만 달성</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-zinc-100 flex items-center justify-center font-bold shrink-0">'19</div>
+                    <div>
+                        <h3 class="font-bold text-lg">Product Analyst @ DataCo</h3>
+                        <p class="text-zinc-500">데이터 분석 역량 구축</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section class="primary-gradient rounded-3xl p-12 text-white text-center">
+            <h2 class="text-3xl font-bold mb-4">Let's Build Something Great</h2>
+            <p class="text-white/80 mb-8">다음 유니콘을 함께 만들어갈 준비가 되어있습니다.</p>
+            <div class="inline-block bg-white text-indigo-600 px-8 py-3 rounded-full font-bold">startup@email.com</div>
+        </section>
+    </main>
+    <footer class="py-12 text-center text-xs text-zinc-400">Pitch Deck Resume © 2024</footer>
+
+    <!-- Premium Enhancements: Lenis & View Transitions -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        if ('startViewTransition' in document) {
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a[href]');
+                if (!link || link.target === '_blank' || link.getAttribute('href').startsWith('#')) return;
+                e.preventDefault();
+                document.startViewTransition(() => { window.location.href = link.href; });
+            });
+        }
+    </script>
+    <a href="../index.html" class="fixed bottom-8 right-8 z-50 bg-black/80 text-white px-6 py-3 rounded-full text-sm font-bold backdrop-blur-md border border-white/20 hover:scale-110 transition-transform flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Gallery
+    </a>
+
+</body>
+</html>

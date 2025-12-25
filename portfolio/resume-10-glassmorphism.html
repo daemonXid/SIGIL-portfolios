@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Resume | Glassmorphism Dark Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        ::view-transition-old(root), ::view-transition-new(root) {
+            animation-duration: 0.4s;
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e4e4e7;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* Animated Gradient Blobs */
+        .blob-container {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.5;
+            animation: blobMove 20s ease-in-out infinite;
+        }
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            top: -20%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            top: 50%;
+            right: -15%;
+            animation-delay: -5s;
+        }
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            bottom: -10%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+        @keyframes blobMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -30px) scale(1.1); }
+            50% { transform: translate(-30px, 50px) scale(0.9); }
+            75% { transform: translate(30px, 30px) scale(1.05); }
+        }
+        /* Glass Cards */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+        }
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            border-radius: 26px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .glow-border:hover::before {
+            opacity: 0.5;
+        }
+        .skill-bar {
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+    </style>
+</head>
+<body class="py-12 px-6">
+    
+    <!-- Animated Blobs -->
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto">
+        
+        <!-- Back Navigation -->
+        <nav class="mb-8">
+            <a href="../index.html" class="text-sm text-white/60 hover:text-white transition-colors">← Back to Gallery</a>
+        </nav>
+
+        <!-- Header Card -->
+        <header class="glass glass-strong p-10 md:p-16 mb-8 glow-border">
+            <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                <!-- Avatar -->
+                <div class="w-32 h-32 rounded-full accent-gradient flex items-center justify-center text-5xl font-bold shadow-2xl shadow-purple-500/30">
+                    JK
+                </div>
+                <!-- Info -->
+                <div class="text-center md:text-left flex-1">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gradient mb-3">정현규</h1>
+                    <p class="text-xl text-purple-300 mb-6">Senior Frontend Developer</p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                        <span class="px-4 py-2 glass rounded-full text-sm font-medium">📍 Seoul, Korea</span>
+                        <span class="px-4 py-2 glass rounded-full text-sm font-medium">✉️ hk@glass.dev</span>
+                        <span class="px-4 py-2 glass rounded-full text-sm font-medium">🔗 github.com/hkjung</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Left Column -->
+            <div class="space-y-8">
+                <!-- About -->
+                <section class="glass p-8 glow-border">
+                    <h2 class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-4">About</h2>
+                    <p class="text-white/70 leading-relaxed">
+                        사용자 경험을 최우선으로 생각하는 프론트엔드 개발자입니다. 아름다운 인터페이스와 뛰어난 성능, 두 마리 토끼를 모두 잡는 것이 목표입니다.
+                    </p>
+                </section>
+
+                <!-- Skills with Progress -->
+                <section class="glass p-8 glow-border">
+                    <h2 class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-6">Skills</h2>
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>React / Next.js</span>
+                                <span class="text-purple-300">95%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>TypeScript</span>
+                                <span class="text-purple-300">90%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>CSS / Tailwind</span>
+                                <span class="text-purple-300">92%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width: 92%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Three.js / WebGL</span>
+                                <span class="text-purple-300">75%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%"></div></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact -->
+                <section class="glass p-8 glow-border">
+                    <h2 class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-4">Contact</h2>
+                    <div class="space-y-3 text-sm text-white/70">
+                        <p>📧 hyunkyu.jung@email.com</p>
+                        <p>📱 +82 10-9876-5432</p>
+                        <p>🌐 portfolio.hkjung.dev</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column (2 cols) -->
+            <div class="md:col-span-2 space-y-8">
+                
+                <!-- Experience -->
+                <section class="glass p-8 glow-border">
+                    <h2 class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-6">Experience</h2>
+                    <div class="space-y-8">
+                        <div class="relative pl-6 border-l-2 border-purple-500/30">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full accent-gradient"></div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                <h3 class="text-xl font-bold">Lead Frontend Engineer</h3>
+                                <span class="text-sm text-purple-300">2022 - Present</span>
+                            </div>
+                            <p class="text-white/60 mb-3">Toss (비바리퍼블리카)</p>
+                            <ul class="text-sm text-white/50 space-y-1">
+                                <li>• 금융 서비스 UI 컴포넌트 시스템 설계 및 구축</li>
+                                <li>• 웹 성능 최적화 (LCP 40% 개선, CLS 0.1 이하 달성)</li>
+                                <li>• 5인 프론트엔드 팀 리드 및 코드 리뷰</li>
+                            </ul>
+                        </div>
+                        <div class="relative pl-6 border-l-2 border-white/10">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white/20"></div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                <h3 class="text-xl font-bold">Frontend Developer</h3>
+                                <span class="text-sm text-white/40">2019 - 2022</span>
+                            </div>
+                            <p class="text-white/60 mb-3">Kakao Corp</p>
+                            <ul class="text-sm text-white/50 space-y-1">
+                                <li>• 카카오톡 웹 클라이언트 유지보수 및 기능 개발</li>
+                                <li>• React 마이그레이션 프로젝트 참여</li>
+                            </ul>
+                        </div>
+                        <div class="relative pl-6 border-l-2 border-white/10">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white/20"></div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                <h3 class="text-xl font-bold">Junior Developer</h3>
+                                <span class="text-sm text-white/40">2017 - 2019</span>
+                            </div>
+                            <p class="text-white/60 mb-3">스타트업 ABC</p>
+                            <ul class="text-sm text-white/50 space-y-1">
+                                <li>• 이커머스 플랫폼 프론트엔드 개발</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects -->
+                <section class="glass p-8 glow-border">
+                    <h2 class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-6">Featured Projects</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="glass p-6 rounded-xl">
+                            <div class="text-3xl mb-3">🎨</div>
+                            <h3 class="font-bold mb-1">Design System</h3>
+                            <p class="text-xs text-white/50">토스 내부 디자인 시스템 구축</p>
+                        </div>
+                        <div class="glass p-6 rounded-xl">
+                            <div class="text-3xl mb-3">⚡</div>
+                            <h3 class="font-bold mb-1">Performance Lab</h3>
+                            <p class="text-xs text-white/50">웹 성능 모니터링 도구 개발</p>
+                        </div>
+                        <div class="glass p-6 rounded-xl">
+                            <div class="text-3xl mb-3">🌐</div>
+                            <h3 class="font-bold mb-1">WebGL Gallery</h3>
+                            <p class="text-xs text-white/50">인터랙티브 3D 포트폴리오</p>
+                        </div>
+                        <div class="glass p-6 rounded-xl">
+                            <div class="text-3xl mb-3">📱</div>
+                            <h3 class="font-bold mb-1">PWA Framework</h3>
+                            <p class="text-xs text-white/50">오프라인 우선 웹앱 프레임워크</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education & Certs -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <section class="glass p-8 glow-border">
+                        <h2 class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-4">Education</h2>
+                        <div>
+                            <h3 class="font-bold">서울대학교</h3>
+                            <p class="text-sm text-white/50">컴퓨터공학 학사 (2013-2017)</p>
+                        </div>
+                    </section>
+                    <section class="glass p-8 glow-border">
+                        <h2 class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-4">Certifications</h2>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 glass rounded-full text-xs">AWS Solutions Architect</span>
+                            <span class="px-3 py-1 glass rounded-full text-xs">Google UX</span>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-16 text-center text-xs text-white/30 uppercase tracking-widest">
+            Built with Glassmorphism • 2024
+        </footer>
+    </div>
+
+
+    <!-- Premium Enhancements: Lenis & View Transitions -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        if ('startViewTransition' in document) {
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a[href]');
+                if (!link || link.target === '_blank' || link.getAttribute('href').startsWith('#')) return;
+                e.preventDefault();
+                document.startViewTransition(() => { window.location.href = link.href; });
+            });
+        }
+    </script>
+    <a href="../index.html" class="fixed bottom-8 right-8 z-50 bg-black/80 text-white px-6 py-3 rounded-full text-sm font-bold backdrop-blur-md border border-white/20 hover:scale-110 transition-transform flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Gallery
+    </a>
+
+</body>
+</html>

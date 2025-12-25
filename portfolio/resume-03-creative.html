@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Creative Gradient Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #334155; }
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%); }
+        .card { background: white; border-radius: 2rem; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.02); }
+        .tab-active { background: #f1f5f9; color: #6366f1; border-color: #e2e8f0; }
+    </style>
+</head>
+<body class="py-12 md:py-24 px-6 overflow-x-hidden">
+
+    <!-- Header Card -->
+    <header class="max-w-4xl mx-auto gradient-bg p-12 md:p-20 rounded-[3rem] text-white relative overflow-hidden mb-12 shadow-2xl shadow-indigo-500/20">
+        <div class="absolute top-[-20%] right-[-10%] w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="relative z-10">
+            <h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tighter">I'm Julia.</h1>
+            <p class="text-xl md:text-2xl font-medium opacity-90 max-w-xl leading-relaxed">
+                사람과 브랜드를 잇는 특별한 <span class="bg-white text-indigo-600 px-2 rounded-lg">이야기</span>를 디자인하는 크리에이티브 디렉터입니다.
+            </p>
+        </div>
+        <div class="mt-12 flex flex-wrap gap-4 relative z-10">
+            <span class="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-sm font-semibold border border-white/20">Design Strategy</span>
+            <span class="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-sm font-semibold border border-white/20">Visual Identity</span>
+            <span class="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-sm font-semibold border border-white/20">Branding</span>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Sidebar Info -->
+        <aside class="col-span-1 space-y-8">
+            <div class="card p-8">
+                <h2 class="text-lg font-bold mb-6 text-zinc-800">Contact</h2>
+                <div class="space-y-4 text-sm font-medium">
+                    <p class="text-zinc-400">Email <br/><span class="text-zinc-800">hello@julia.design</span></p>
+                    <p class="text-zinc-400">Phone <br/><span class="text-zinc-800">010.5678.1234</span></p>
+                </div>
+            </div>
+            <div class="card p-8">
+                <h2 class="text-lg font-bold mb-6 text-zinc-800">Education</h2>
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-xs font-bold text-indigo-500 mb-1">2014-2018</p>
+                        <h3 class="font-bold text-zinc-800">서울예술대학교</h3>
+                        <p class="text-xs text-zinc-500">디지털 아트 전공</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <article class="col-span-1 md:col-span-2 space-y-8">
+            
+            <section class="card p-10">
+                <h2 class="text-2xl font-bold mb-8 text-zinc-800 flex items-center gap-3">
+                    <span class="w-8 h-8 gradient-bg rounded-lg animate-pulse"></span>
+                    Portfolio Highlights
+                </h2>
+                <div class="space-y-12">
+                    <div class="relative pl-8 border-l-2 border-slate-100">
+                        <div class="absolute left-[-5px] top-0 w-2 h-2 rounded-full bg-indigo-500"></div>
+                        <h3 class="text-lg font-bold text-zinc-800">Bloom Creative Studio</h3>
+                        <p class="text-sm font-bold text-indigo-400 mb-4">Founder & Lead Designer (2020-Present)</p>
+                        <p class="text-sm text-zinc-600 leading-relaxed font-light">
+                            30개 이상의 스타트업 브랜딩 프로젝트를 총괄하며, 시각 언어를 통해 기업의 정체성을 확립하는 과정을 주도했습니다.
+                        </p>
+                    </div>
+                    <div class="relative pl-8 border-l-2 border-slate-100">
+                        <div class="absolute left-[-5px] top-0 w-2 h-2 rounded-full bg-slate-200"></div>
+                        <h3 class="text-lg font-bold text-zinc-800">Trendy Market Co.</h3>
+                        <p class="text-sm font-bold text-zinc-400 mb-4">Brand Designer (2018-2020)</p>
+                        <p class="text-sm text-zinc-600 leading-relaxed font-light">
+                            MZ 세대를 타겟으로 한 라이프스타일 브랜드 마케팅 캠페인 시각 제작물 디자인.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card p-10">
+                <h2 class="text-2xl font-bold mb-8 text-zinc-800">Achievement</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <h4 class="font-bold text-sm mb-1">IF Design Award</h4>
+                        <p class="text-xs text-slate-500">Winner 2023</p>
+                    </div>
+                    <div class="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
+                        <h4 class="font-bold text-sm text-indigo-700 mb-1">K-Design Gold</h4>
+                        <p class="text-xs text-indigo-400">Winner 2021</p>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+    <footer class="mt-24 pt-12 border-t border-slate-200 text-center">
+        <p class="text-sm font-medium text-slate-400">Stay Creative. Julia Design © 2024</p>
+    </footer>
+
+
+    <!-- Premium Enhancements: Lenis & View Transitions -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        if ('startViewTransition' in document) {
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a[href]');
+                if (!link || link.target === '_blank' || link.getAttribute('href').startsWith('#')) return;
+                e.preventDefault();
+                document.startViewTransition(() => { window.location.href = link.href; });
+            });
+        }
+    </script>
+    <a href="../index.html" class="fixed bottom-8 right-8 z-50 bg-black/80 text-white px-6 py-3 rounded-full text-sm font-bold backdrop-blur-md border border-white/20 hover:scale-110 transition-transform flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Gallery
+    </a>
+
+</body>
+</html>

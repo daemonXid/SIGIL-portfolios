@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGIL Portfolio Gallery | Resume Templates Collection</title>
+    <meta name="description" content="11 premium resume templates collection">
+    <meta name="view-transition" content="same-origin">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <style>
+        :root { --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); }
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        body { font-family: 'Inter', sans-serif; background: #050510; color: #e4e4e7; min-height: 100vh; }
+        .bg-parallax { position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background-image: radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+            radial-gradient(circle, #18181b 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 24px 24px; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px); border-radius: 1.5rem; transition: all 0.5s var(--ease-out-expo); }
+        .glass-card:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.12);
+            transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 60px rgba(99, 102, 241, 0.15); }
+        .preview-container { height: 180px; border-radius: 1rem 1rem 0 0; overflow: hidden; position: relative; }
+        .preview-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(5, 5, 16, 0.95) 100%);
+            opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 1.5rem; }
+        
+        /* 모바일 터치 환경 대응: 호버가 없는 기기에서는 버튼 가시성 확보 */
+        @media (hover: hover) {
+            .glass-card:hover .preview-overlay { opacity: 1; }
+            .glass-card:hover .view-btn { opacity: 1; transform: translateY(0); }
+        }
+        @media (hover: none) {
+            .preview-overlay { opacity: 1; background: linear-gradient(180deg, transparent 50%, rgba(5, 5, 16, 0.8) 100%); }
+            .view-btn { opacity: 1; transform: translateY(0); padding: 0.5rem 1rem; font-size: 0.75rem; }
+        }
+
+        .number-badge { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.75rem; font-weight: 800; font-family: 'Outfit', sans-serif; color: #fff;
+            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 1rem;
+            transition: all 0.4s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        
+        @media (max-width: 640px) {
+            .number-badge { width: 48px; height: 48px; font-size: 1.25rem; }
+            .preview-container { height: 160px; }
+        }
+
+        .glass-card:hover .number-badge { transform: scale(1.1); box-shadow: 0 0 30px rgba(255,255,255,0.3); }
+        .view-btn { background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            color: white; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 600; font-size: 0.875rem;
+            transition: all 0.4s var(--ease-out-expo); opacity: 0; transform: translateY(20px); }
+
+        .category-tag { padding: 0.4rem 0.8rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 600;
+            letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.3s var(--ease-out-expo);
+            cursor: pointer; border: 1px solid transparent; white-space: nowrap; }
+        
+        .search-input { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1rem; padding: 0.8rem 1rem 0.8rem 3rem; font-size: 0.875rem; color: #e4e4e7; width: 100%; }
+        
+        @media (max-width: 640px) {
+            .header-title { font-size: 2.75rem !important; }
+            .search-input { font-size: 1rem; } /* 모바일 사파리 줌 방지 */
+        }
+        .title-gradient { background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+        @media (min-width: 640px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 1280px) { .portfolio-grid { grid-template-columns: repeat(4, 1fr); } }
+        .badge-style { background: rgba(255, 255, 255, 0.1); color: #a1a1aa; }
+    </style>
+</head>
+<body x-data="portfolioGallery()">
+    <canvas id="fluid-canvas" class="fixed inset-0 z-0 pointer-events-auto"></canvas>
+    <div class="bg-parallax"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-24">
+        <header class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
+                <span class="text-xs font-semibold tracking-widest uppercase text-indigo-400">MODERN-SIGIL</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight title-gradient mb-6" style="font-family: 'Outfit', sans-serif;">
+                Portfolio Gallery
+            </h1>
+            <p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+                11개의 정선된 프리미엄 Resume 템플릿 — 겨울 쿨톤 테마 적용
+            </p>
+        </header>
+
+        <div class="mb-12 space-y-6">
+            <div class="relative max-w-xl mx-auto">
+                <input type="text" x-model="searchQuery" placeholder="템플릿 검색..." class="search-input">
+                <div class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-2">
+                <template x-for="category in categories" :key="category.id">
+                    <button class="category-tag" :class="{ 'bg-white/10': selectedCategory === category.id, 'opacity-50': selectedCategory !== category.id }" @click="selectedCategory = category.id" x-text="category.label"></button>
+                </template>
+            </div>
+        </div>
+
+        <div class="portfolio-grid">
+            <template x-for="portfolio in filteredPortfolios" :key="portfolio.id">
+                <article class="glass-card group" @mouseenter="prefetchPage(portfolio.path)">
+                    <div class="preview-container" :style="`background: ${portfolio.previewBg}`">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="number-badge" x-text="portfolio.number"></div>
+                        </div>
+                        <div class="preview-overlay">
+                            <a :href="portfolio.path" class="view-btn inline-flex items-center gap-2">
+                                <span>View Template</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <span class="inline-block px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider mb-2 badge-style" x-text="portfolio.category"></span>
+                        <h3 class="text-base font-bold text-white mb-1 group-hover:text-indigo-300 transition-colors" x-text="portfolio.title"></h3>
+                        <p class="text-xs text-zinc-500" x-text="portfolio.description"></p>
+                    </div>
+                </article>
+            </template>
+        </div>
+
+        <footer class="mt-24 pt-12 border-t border-white/5 text-center">
+            <p class="text-xs text-zinc-600 uppercase tracking-[0.3em]">✨ SIGIL • Winter Cool Tone Palette</p>
+        </footer>
+    </div>
+
+    <script>
+        /* Lenis Smooth Scroll */
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        /* Portfolio Gallery Logic */
+        function portfolioGallery() {
+            return {
+                searchQuery: '',
+                selectedCategory: 'all',
+                portfolios: [],
+                prefetchedPages: [],
+                categories: [
+                    { id: 'all', label: 'All' },
+                    { id: 'minimal', label: 'Minimal' },
+                    { id: 'dark', label: 'Dark' },
+                    { id: 'creative', label: 'Creative' },
+                    { id: 'professional', label: 'Professional' }
+                ],
+                async init() {
+                    const response = await fetch('data/portfolios.json');
+                    this.portfolios = await response.json();
+                },
+                get filteredPortfolios() {
+                    let result = this.portfolios;
+                    if (this.selectedCategory !== 'all') result = result.filter(p => p.categoryId === this.selectedCategory);
+                    if (this.searchQuery.trim()) {
+                        const q = this.searchQuery.toLowerCase();
+                        result = result.filter(p => p.title.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
+                    }
+                    return result;
+                },
+                prefetchPage(path) {
+                    if (this.prefetchedPages.includes(path)) return;
+                    const link = document.createElement('link');
+                    link.rel = 'prefetch'; link.href = path; link.as = 'document';
+                    document.head.appendChild(link);
+                    this.prefetchedPages.push(path);
+                }
+            };
+        }
+
+        /* View Transitions API */
+        if ('startViewTransition' in document) {
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a[href]');
+                if (!link || link.target === '_blank' || link.getAttribute('href').startsWith('#')) return;
+                e.preventDefault();
+                document.startViewTransition(() => { window.location.href = link.href; });
+            });
+        }
+
+        /* Fluid Background Effect (Sophisticated) */
+        const canvas = document.getElementById('fluid-canvas');
+        const ctx = canvas.getContext('2d');
+        let points = [];
+        const maxPoints = 50;
+        let mouse = { x: -1000, y: -1000 };
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            for(let i=0; i<3; i++) {
+                points.push({
+                    x: e.clientX,
+                    y: e.clientY,
+                    vx: (Math.random() - 0.5) * 2,
+                    vy: (Math.random() - 0.5) * 2,
+                    size: Math.random() * 40 + 20,
+                    opacity: 0.6,
+                    color: i % 2 === 0 ? '#6366f1' : '#a855f7'
+                });
+            }
+            if (points.length > 150) points.splice(0, 3);
+        });
+
+        function animateFluid() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Subtle ambient movement
+            points.forEach((p, i) => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.size += 0.5;
+                p.opacity -= 0.005;
+                
+                if (p.opacity <= 0) {
+                    points.splice(i, 1);
+                    return;
+                }
+
+                ctx.beginPath();
+                const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+                grad.addColorStop(0, p.color + Math.floor(p.opacity * 255).toString(16).padStart(2, '0'));
+                grad.addColorStop(1, p.color + '00');
+                ctx.fillStyle = grad;
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(animateFluid);
+        }
+        animateFluid();
+    </script>
+
+</body>
+</html>
